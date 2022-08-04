@@ -5,3 +5,4 @@ Build/*
  
 .vsconfig 
 *.sln 
+.vs
