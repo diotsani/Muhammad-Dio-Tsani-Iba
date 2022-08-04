@@ -42,6 +42,7 @@ public class Cube : MonoBehaviour
 
     public void Controller()
     {
+        // For Smartphone
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -49,14 +50,14 @@ public class Cube : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.tag == "Ground")
+                if (hit.collider.tag == "Cube")
                 {
                     dragging = true;
                 }
             }
         }
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -64,27 +65,28 @@ public class Cube : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.tag == "Ground")
+                if (hit.collider.tag == "Cube")
                 {
                     dragging = true;
                 }
             }
         }
-#endif
+//#endif
     }
 
     public void Drag()
     {
+        // For Smartphone
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
             dragging = false;
         }
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
             dragging = false;
         }
-#endif
+//#endif
     }
 }
